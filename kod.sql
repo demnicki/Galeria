@@ -4,14 +4,14 @@ MINVALUE 1
 MAXVALUE 999
 START WITH 1;
 
-/* Tworzenie tabeli „rodzaje plików”. */
+/* Tworzenie tabeli â€žrodzaje plikÃ³wâ€. */
 CREATE TABLE rodzaje_plikow(
 kod      CHAR(4 CHAR) NOT NULL,
 typ_mime VARCHAR2(100 CHAR) NOT NULL,
 CONSTRAINT glowny_rodzaje_plikow PRIMARY KEY (kod));
 
 
-/* Tworzenie tabeli „pliki”. */
+/* Tworzenie tabeli â€žplikiâ€. */
 CREATE TABLE pliki(
 id       NUMBER DEFAULT ON NULL sek_pliki.NEXTVAL NOT NULL,
 plik     BLOB,
@@ -35,7 +35,7 @@ BEGIN
   COMMIT;
 END;
 
-/* Tworzenie modu³u */
+/* Tworzenie moduÅ‚u */
 BEGIN
   ords.define_module(
     p_module_name    => 'pliki',
@@ -83,9 +83,9 @@ BEGIN
   COMMIT;
 END;
 
-/* Programowanie poszczególnych podstron. */
+/* Programowanie poszczegÃ³lnych podstron. */
 
-/* SELECTy do galerii zdjêæ. */
+/* SELECTy do galerii zdjÄ™Ä‡. */
 
 SELECT id, nazwa, plik FROM pliki WHERE
 	nazwa LIKE 'p%' AND
@@ -100,7 +100,7 @@ SELECT id, nazwa, plik FROM pliki WHERE
 	kod_typu = 'gif';
 
 SELECT plik FROM pliki WHERE
-	id = :P4_ID;
+	id = :?_ID;
 
 /* Utworzenie procesu AJAX callback. */
 DECLARE
